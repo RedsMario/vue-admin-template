@@ -41,7 +41,8 @@ export const filterRearEndAsyncRoutes = asyncRoutes => {
       if (route.component === 'Layout') {
         route.component = resolve => require(['@/Layouts'], resolve)
       } else {
-        route.component = resolve => require([`@/views/${route.component}`], resolve)
+        const path = route.component
+        route.component = resolve => require([`@/views/${path}`], resolve)
       }
     }
     if (route.children && route.children.length) {

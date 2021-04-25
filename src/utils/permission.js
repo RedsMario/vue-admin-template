@@ -2,7 +2,7 @@
  * @Author: Mario
  * @Date: 2021-04-23 18:12:15
  * @Last Modified by: Mario
- * @Last Modified time: 2021-04-25 11:15:29
+ * @Last Modified time: 2021-04-25 16:28:07
  */
 import router from '@/router'
 import store from '@/store'
@@ -41,6 +41,8 @@ router.beforeEach(async (to, from, next) => {
             // 如果权限由后端控制
             routes = await store.dispatch('permission/generateRearEndRoutes')
           }
+          console.log(routes)
+          // router.addRoutes(routes)
           routes.forEach(route => {
             router.addRoute(route)
           })
