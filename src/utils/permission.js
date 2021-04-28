@@ -2,11 +2,11 @@
  * @Author: Mario
  * @Date: 2021-04-23 18:12:15
  * @Last Modified by: Mario
- * @Last Modified time: 2021-04-25 16:28:07
+ * @Last Modified time: 2021-04-27 19:02:03
  */
 import router from '@/router'
 import store from '@/store'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 import { tokenKey, routerWhiteList, authentication } from '@/config/setting'
 import { getItem } from '@/utils/storage'
 import NProgress from 'nprogress'
@@ -41,16 +41,16 @@ router.beforeEach(async (to, from, next) => {
             // 如果权限由后端控制
             routes = await store.dispatch('permission/generateRearEndRoutes')
           }
-          console.log(routes)
-          // router.addRoutes(routes)
           routes.forEach(route => {
             router.addRoute(route)
           })
           next({ ...to, replace: true })
+          // next()
         } catch (error) {
+          console.log(error)
           // token is not valid must be remove token
           await store.dispatch('user/removeToken')
-          Message.error(error || 'Has Error')
+          // Message.error(error || 'Has Error')
           next(`/login?redirect=${to.path}`)
           NProgress.done()
         }

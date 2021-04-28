@@ -1,6 +1,6 @@
 module.exports = {
   // 控制权限的方式
-  authentication: 'RearEnd', // FrontEnd | RearEnd
+  authentication: 'FrontEnd', // FrontEnd | RearEnd
   // 控制路由白名单
   routerWhiteList: ['/login', '/register', '/401', '/404'],
   // 本地存储方式, 默认为cookie

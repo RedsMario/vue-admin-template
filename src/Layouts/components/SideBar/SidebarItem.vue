@@ -7,7 +7,6 @@
         </el-menu-item>
       </app-link>
     </template>
-
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
@@ -43,6 +42,9 @@ export default {
       default: ''
     }
   },
+  created() {
+    // console.log(this.item)
+  },
   data() {
     // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
     // TODO: refactor with render function
@@ -50,8 +52,13 @@ export default {
     return {}
   },
   methods: {
+    /**
+     *  @description  判断是否有可以展示的子路由
+     */
     hasOneShowingChild(children = [], parent) {
+      console.log(parent)
       const showingChildren = children.filter(item => {
+        // 如果当前路由设置了hidde: true 则不显示
         if (item.hidden) {
           return false
         } else {
@@ -60,18 +67,19 @@ export default {
           return true
         }
       })
-
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
+        // console.log(111)
         return true
       }
 
       // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
+        // console.log(0)
         this.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
         return true
       }
-
+      // console.log(333)
       return false
     },
     resolvePath(routePath) {

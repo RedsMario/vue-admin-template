@@ -1,5 +1,23 @@
 import Vue from 'vue'
-import { Button, Row, Col, Form, FormItem, Input, Message, Notification, Breadcrumb, BreadcrumbItem, Dropdown, DropdownItem, DropdownMenu, Menu, MenuItem, Scrollbar } from 'element-ui'
+import {
+  Button,
+  Row,
+  Col,
+  Form,
+  FormItem,
+  Input,
+  Message,
+  Notification,
+  Breadcrumb,
+  BreadcrumbItem,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Menu,
+  MenuItem,
+  Scrollbar,
+  Submenu
+} from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Row)
@@ -15,6 +33,7 @@ Vue.use(DropdownMenu)
 Vue.use(Menu)
 Vue.use(MenuItem)
 Vue.use(Scrollbar)
+Vue.use(Submenu)
 
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification

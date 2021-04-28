@@ -8,6 +8,7 @@ export const asyncRoutes = [
     path: '/',
     redirect: 'dashboard',
     component: Layout,
+    // meta: { title: '哈哈', icon: 'dashboard' },
     children: [
       {
         path: '/dashboard',

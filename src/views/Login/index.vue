@@ -10,8 +10,6 @@
             <h1>Hello Mario!</h1>
             <p class="tips">
               欢迎来到Permission-Admin-Template！
-              <br />
-              基于Vue + Element开发
             </p>
             <el-form :model="loginForm" :rules="loginFormRules" ref="loginFormRef">
               <el-form-item prop="username" class="form-item">
@@ -112,9 +110,10 @@ export default {
 .login-container {
   width: 100%;
   height: 100vh;
-  background: url(~@/assets/images/login.jpg) center no-repeat;
+  background: url(~@/assets/images/loginbg.png) no-repeat;
   background-size: cover;
   .el-row {
+    // display: flex;
     .el-col {
       .placeholder {
         color: transparent;
@@ -132,7 +131,6 @@ export default {
           max-width: 100%;
           padding: 4.5vh;
           margin: 0 5vw 5vw;
-          transition: all 0.3s;
           .icon {
             position: absolute;
             transform: translate(0, -50%);
@@ -167,12 +165,12 @@ export default {
           h1 {
             font-size: 54px;
             margin-top: 0;
-            color: #475062;
+            color: #f5f2fb;
           }
           .tips {
             font-size: 20px;
             font-weight: 400;
-            color: #485163;
+            color: #f5f2fb;
           }
           .login-btn {
             width: 220px;

@@ -16,13 +16,15 @@ function hasPermission(routes, roles) {
  *  @description 根据角色筛选路由  (前端路由的筛选)
  */
 export const filterFrontEndAsyncRoutes = (asyncRoutes, roles) => {
-  const newRoutes = asyncRoutes.map(routes => {
+  const newRoutes = []
+  asyncRoutes.map(routes => {
     const route = { ...routes }
     if (hasPermission(route, roles)) {
       if (route.children) {
         route.children = filterFrontEndAsyncRoutes(route.children, roles)
       }
-      return route
+      if (route.children && route.children.length === 0) delete route.children
+      newRoutes.push(route)
     }
   })
   return newRoutes
